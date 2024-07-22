@@ -1,0 +1,18 @@
+import React from 'react'
+import Link from 'next/link'
+
+const Contact = () => {
+  return (
+    <div className='w-full h-[35rem] mt-16 flex justify-center '>
+        <div className='h-full w-2/4 text-center flex flex-col justify-center gap-10'>
+            <h1 className='text-5xl '>Get in Touch</h1>
+            <input type="text" placeholder='Your Name' className='w-full h-10 rounded-md bg-[#D9D9D9] ' />
+            <input type="email" placeholder='Your Email' className='w-full h-10 rounded-md bg-[#D9D9D9] ' />
+            <input type="text" className='w-full h-52 rounded-md bg-[#D9D9D9] ' />
+            <Link href={""} className=' text-lg flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] '>Send</Link>
+        </div>
+    </div>
+  )
+}
+
+export default Contact
