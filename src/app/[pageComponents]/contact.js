@@ -10,8 +10,8 @@ const send=async()=>{
 export default function Contact(){
   return (
     <div className='w-full h-[35rem] mt-16 flex justify-center '>
-        <div className='h-full w-2/4 text-center flex flex-col justify-center gap-10'>
-            <h1 className='text-5xl '>Get in Touch</h1>
+        <div className='h-full w-full md:w-2/4 text-center flex flex-col justify-center gap-10'>
+            <h1 className='text-3xl md:text-5xl '>Get in Touch</h1>
             <input type="text" placeholder='Your Name' className='w-full h-10 rounded-md bg-[#D9D9D9] ' />
             <input type="email" placeholder='Your Email' className='w-full h-10 rounded-md bg-[#D9D9D9] ' />
             <input type="text" className='w-full h-52 rounded-md bg-[#D9D9D9] ' />

@@ -17,7 +17,7 @@ const ProjectPage = () => {
                         <div className=' grid justify-center w-3/6 gap-10 '>
                             <h1 className='text-2xl' id='ProjectText'>{da.Name}</h1>
                             <p className='text-lg' id='ProjectText'>{da.About}</p>
-                            <Link href={""} className=' text-lg flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] ' id='ProjectText'>Case Study</Link>
+                            <Link href={`/${da.id}`} className=' text-lg flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] ' id='ProjectText'>Case Study</Link>
                         </div>
                     </div>
                 )

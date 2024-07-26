@@ -7,3 +7,8 @@ body{
   background-color: #201F1F;
   scroll-behavior: smooth;
 }
+/* @media(max-width:500px){
+  #svg{
+    display: none;
+  }
+} */
