@@ -1,5 +1,11 @@
 [
     {
-        
+        "id":1,
+        "Name":"RecipeSavvy",
+        "Description":"RecipeSavvy is a comprehensive web application designed to enhance the culinary experience by providing users with the ability to discover delicious recipes and order fresh fruits and vegetables online. The platform enables users to create accounts, save their favorite recipes, and share their own culinary creations with the community.",
+        "Features":["Browse a wide variety of recipes with detailed instructions and ingredient lists.","Easily order fresh fruits and vegetables directly from the platform."," Create an account to save favorite recipes and manage orders.","Share your own recipes with the community by adding new recipes to the platform.","Enjoy a seamless experience on both desktop and mobile devices."],
+        "Technologies":["Frontend: HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS","Backend: Node.js, Express.js, MongoDB","API Integration: RESTful APIs for seamless data interaction",""],
+        "img":"/project-1.png",
+        "Link":"https://github.com/neeranjan-bhardwaj/recipesavvy"
     }
 ]

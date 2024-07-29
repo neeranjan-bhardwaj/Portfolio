@@ -12,11 +12,11 @@ const ProjectPage = () => {
         <div>
             {Data.map((da)=>{
                 return(
-                    <div className='flex items-center justify-around gap-10 mt-6 '>
-                        <img src={da.Image} className='w-1/4 h-1/6' id='ProjectText'/>
-                        <div className=' grid justify-center w-3/6 gap-10 '>
-                            <h1 className='text-2xl' id='ProjectText'>{da.Name}</h1>
-                            <p className='text-lg' id='ProjectText'>{da.About}</p>
+                    <div className='flex items-center max-md:flex-col justify-around gap-10 mt-12 '>
+                        <img src={da.img} className=' w-3/4 md:w-1/4 h-3/4 md:h-1/6' id='ProjectText'/>
+                        <div className=' grid justify-center w-full md:w-3/6 gap-4 md:gap-10 '>
+                            <h1 className='text-2xl max-md:text-center ' id='ProjectText'>{da.Name}</h1>
+                            <p className='md:text-lg' id='ProjectText'>{da.Description}</p>
                             <Link href={`/${da.id}`} className=' text-lg flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] ' id='ProjectText'>Case Study</Link>
                         </div>
                     </div>

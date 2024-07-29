@@ -13,27 +13,27 @@ import Contact from './[pageComponents]/contact'
 
 const page = () => {
   useGSAP(()=>{
-    // Animatiom()
+    Animatiom()
   })
   const [nav,setnav]=useState(false)
   console.log(nav)
   return (
     <div className='text-white font-Playfair '>    
       <nav className='flex justify-center md:gap-2 md:text-xl '>
-        <div>Neeranjan Bhardwaj</div>
-        <div className={`w-3/4 max-md:hidden flex justify-center gap-10`}>
+        <div id='Name'>Neeranjan Bhardwaj</div>
+        <div className={`w-2/3 max-md:hidden flex justify-center gap-10`} id='Links'>
           <a href='#' className='hover:text-gray-300'>Home</a>
           <a href='#' className=''>Work</a>
           <a href='#' className=''>Services</a>
         </div>
-        <a href='#' className='ml-28'>Start Project</a>
+        <a href='#' className='ml-28' id='Start'>Start Project</a>
         <div className='md:hidden ml-2 md: '>
           <button onClick={()=>setnav(!nav)} className='md:hidden'>
             <svg fill='none' 
             stroke='currentColor'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
             viewBox='0 0 24 24'
             className='w-6 h-6'>
               <path d='M4 6h16M4 12h16M4 18h16'></path>
