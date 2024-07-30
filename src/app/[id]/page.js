@@ -14,17 +14,17 @@ const page = ({params}) => {
                         <div className='w-full grid place-items-center '><img src={e.img}/></div>
                         <div className='ml-3 mr-3'>
                             <h1 className='text-2xl '>Description:</h1>
-                            <p className='text-lg '>{e.Description}</p>
+                            <p className='md:text-lg '>{e.Description}</p>
                             <h1 className='mt-10 text-2xl'>Features:</h1>
                             <ul className='list-disc'>
                                 {e.Features.map(f=>{
-                                    return <li className='text-lg ml-10'>{f}</li>
+                                    return <li className='md:text-lg ml-10'>{f}</li>
                                 })}
                             </ul>
                             <h1 className='text-2xl'>Technologies Used</h1>
                             <ul className='list-disc'>
                                 {e.Technologies.map(tu=>{
-                                    return <li className='text-lg ml-10'>{tu}</li>
+                                    return <li className='md:text-lg ml-10'>{tu}</li>
                                 })}
                             </ul>
                         </div>

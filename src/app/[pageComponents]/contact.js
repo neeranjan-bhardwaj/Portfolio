@@ -4,7 +4,7 @@ import { Mail } from '../mail'
 
 export default function Contact(){
   return (
-    <div className='w-full h-[35rem] mt-16 flex justify-center '>
+    <div className='w-full h-[35rem] mt-16 flex justify-center ' id='Contact'>
         <form onSubmit={(event)=>{
           event.preventDefault()
           const formData = new FormData(event.target);

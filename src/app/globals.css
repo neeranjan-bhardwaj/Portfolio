@@ -5,7 +5,10 @@
 
 body{
   background-color: #201F1F;
+}
+html{
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 /* @media(max-width:500px){
   #svg{
