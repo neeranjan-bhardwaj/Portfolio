@@ -19,7 +19,6 @@ export async function Mail ({
 
     try{
         const test=await transporter.verify()
-        console.log("verify")
     }catch(err){
         console.log(err)
         return;
