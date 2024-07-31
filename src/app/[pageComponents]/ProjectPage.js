@@ -13,10 +13,10 @@ const ProjectPage = () => {
             {Data.map((da)=>{
                 return(
                     <div className='flex items-center max-md:flex-col justify-around gap-10 mt-12 '>
-                        <img src={da.img} className=' w-3/4 md:w-1/4 h-3/4 md:h-1/6' id='ProjectText'/>
+                        <img key='img' src={da.img} className=' w-3/4 md:w-1/4 h-3/4 md:h-1/6' id='ProjectText'/>
                         <div className=' grid justify-center w-full md:w-3/6 gap-4 md:gap-10 '>
-                            <h1 className='text-2xl max-md:text-center ' id='ProjectText'>{da.Name}</h1>
-                            <p className='md:text-lg' id='ProjectText'>{da.Description}</p>
+                            <h1 className='text-2xl max-md:text-center ' id='ProjectText' key='Name'>{da.Name}</h1>
+                            <p className='md:text-lg' id='ProjectText' key='Description'>{da.Description}</p>
                             <Link href={`/${da.id}`} className=' text-lg flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] ' id='ProjectText'>Case Study</Link>
                         </div>
                     </div>
