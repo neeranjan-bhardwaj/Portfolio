@@ -3,7 +3,6 @@ import React from 'react'
 
 const HeroPage = () => {
   return (
-    <div>
       <div className=' flex justify-center items-center gap-5 md:gap-10 flex-col h-96 md:h-screen md:w-full relative overflow-hidden '>
         <span className='h-52 w-36 bg-[#02FFF2] max-md:hidden rounded-full absolute top-0 md:left-[-8%] blur-3xl '/>
         <span className='h-52 w-36 bg-[#02FFF2] max-md:hidden rounded-full absolute top-0 left-[98%] blur-3xl '/>
@@ -22,11 +21,8 @@ const HeroPage = () => {
           <div className=' md:text-lg text-center md:w-8/12 text-[#C9C9C9] ' id='Heding'>
               <p>Mastering the web stack with HTML, CSS, and JavaScript, specializing in React.js and Next.js for dynamic, responsive interfaces. Backend expertise in Node.js and Express, with MongoDB for robust data management. Crafting seamless digital experiences with a passion for clean, efficient code.</p>
           </div>
+          <Link href={"#Contact"} className='text-xl drop-shadow-2xl flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-gradient-radial from-[#28FFB2] to-[#39B581] ' id='Heding'>Contact Me</Link>
       </div>
-      <div className=' w-full absolute max-md:top-[48%] md:bottom-16 flex justify-center gap-5 '>
-      <Link href={"#Contact"} className='md:text-xl drop-shadow-2xl flex justify-center items-center text-black font-extrabold w-32 h-10 rounded-xl bg-[#00FFA1] ' id='Heding'>Contact Me</Link>
-      </div>
-    </div>
   )
 }
 

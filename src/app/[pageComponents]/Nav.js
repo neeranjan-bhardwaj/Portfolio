@@ -5,7 +5,7 @@ import React,{useState} from 'react'
 const Nav = () => {
     const [nav,setnav]=useState(false)
   return (
-    <nav className='text-white flex justify-center gap-44 md:gap-2 md:text-xl '>
+    <nav className='text-white flex justify-center gap-36 md:gap-2 md:text-xl '>
     <div className='md:hidden' id='Name'>Neeranjan Bhardwaj</div>
     <div className='max-md:hidden bg-[#ffffff58] w-[35%] h-8 flex justify-center gap-5 mt-5 rounded-3xl fixed top-0 z-50 ' id='Links'>
       <a href='#' className='hover:text-gray-300'>Home</a>
