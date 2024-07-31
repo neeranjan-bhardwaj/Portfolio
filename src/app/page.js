@@ -86,7 +86,7 @@ function Animatiom(){
 }
 
 const page = () => {
-  useGSAP(()=>{
+  const animation=useGSAP(()=>{
     Animatiom()
   })
   return (
