@@ -2,7 +2,6 @@
 
 import React,{useState} from 'react'
 
-
 const Nav = () => {
     const [nav,setnav]=useState(false)
   return (
@@ -28,12 +27,12 @@ const Nav = () => {
         </svg>
       </button>
       {nav?
-      <div className={` text-lg md: w-full md:w-3/4 bg-[#201F1F] md: z-50 md: left-0 absolute md: flex flex-col md:flex-row justify-center items-center md: gap-10`}>
-      <a href='#' className='hover:text-gray-300'>Home</a>
-      <a href='#About' className=''>About</a>
-      <a href='#Project' className=''>Projects</a>
-      <a href='#Skill' className=''>Skills</a>
-      <a href='#Contact' className=''>Contact Me</a>
+      <div className=' text-lg md: w-full md:w-3/4 bg-[#201F1F] md: z-50 md: left-0 absolute md: flex flex-col md:flex-row justify-center items-center md: gap-10'>
+      <a href='#'>Home</a>
+      <a href='#About'>About</a>
+      <a href='#Project' >Projects</a>
+      <a href='#Skill' >Skills</a>
+      <a href='#Contact' >Contact Me</a>
     </div>:null
       }
     </div>

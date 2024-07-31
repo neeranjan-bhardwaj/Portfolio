@@ -85,7 +85,7 @@ function Animatiom(){
 })
 }
 
-const page = () => {
+const Page = () => {
   const animation=useGSAP(()=>{
     Animatiom()
   })
@@ -100,4 +100,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

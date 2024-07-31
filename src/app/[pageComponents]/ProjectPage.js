@@ -12,7 +12,7 @@ const ProjectPage = () => {
         <div>
             {Data.map((da)=>{
                 return(
-                    <div className='flex items-center max-md:flex-col justify-around gap-10 mt-12 '>
+                    <div key='div' className='flex items-center max-md:flex-col justify-around gap-10 mt-12 '>
                         <img key='img' src={da.img} className=' w-3/4 md:w-1/4 h-3/4 md:h-1/6' id='ProjectText'/>
                         <div className=' grid justify-center w-full md:w-3/6 gap-4 md:gap-10 '>
                             <h1 className='text-2xl max-md:text-center ' id='ProjectText' key='Name'>{da.Name}</h1>
