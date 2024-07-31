@@ -11,7 +11,7 @@ const HeroPage = () => {
         <img src='/CSS.svg' className='max-md:hidden absolute h-20 left-52 top-72' id='svg'/>
         <img src='/HTML.svg' className='max-md:hidden absolute h-20 left-14 bottom-20' id='svg'/>
         <img src='/React.svg' className='max-md:hidden absolute h-20  left-80 bottom-10' id='svg'/>
-        <img src='/Next.svg' className='max-md:hidden absolute h-20 right-36 bottom-48' id='svg'/>
+        <img src='/next.svg' className='max-md:hidden absolute h-20 right-36 bottom-48' id='svg'/>
         <img src='/JS.svg' className='max-md:hidden absolute h-20 right-56 top-56' id='svg'/>
         <img src='/Tailwind.svg' className='max-md:hidden absolute h-20 right-96 bottom-16' id='svg'/>
           <div className='text-2xl md:text-7xl' id='Heding'>
