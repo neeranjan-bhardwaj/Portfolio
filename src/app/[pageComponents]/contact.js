@@ -17,7 +17,12 @@ export default function Contact(){
               body:`<h1>this is mail is from ${name} and there mail is${mail} </h1> <p> ${message}</p>`
             })
           }
-          send()
+          try{
+            send()
+            alert("Message send Successful")
+          }catch{
+            alert("Message send faill")
+          }
         }} className='h-full w-full md:w-2/4 text-center flex flex-col justify-center gap-10'>
             <h1 className='text-3xl md:text-5xl '>Get in Touch</h1>
             <input type="text" placeholder='Your Name' name='name' className='w-full h-10 rounded-md bg-[#D9D9D9] ' />

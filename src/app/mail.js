@@ -31,7 +31,6 @@ export async function Mail ({
             subject: subject,
             html: body
             })
-
     }catch(err){
         console.log(err)
     }
