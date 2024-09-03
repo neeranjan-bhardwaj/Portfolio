@@ -8,11 +8,11 @@ const Nav = () => {
     <nav className='text-white flex justify-center gap-36 md:gap-2 md:text-xl '>
     <div className='md:hidden' id='Name'>Neeranjan Bhardwaj</div>
     <div className='max-md:hidden bg-[#ffffff58] w-[35%] h-8 flex justify-center gap-5 mt-5 rounded-3xl fixed top-0 z-50 ' id='Links'>
-      <a href='#' className='hover:text-gray-300'>Home</a>
-      <a href='#About' className=''>About</a>
-      <a href='#Project' className=''>Projects</a>
-      <a href='#Skill' className=''>Skills</a>
-        <a href='#Contact' id='Start'>Contact Me</a>
+      <a href='/' className='hover:text-gray-300'>Home</a>
+      <a href='/#About' className=''>About</a>
+      <a href='/#Project' className=''>Projects</a>
+      <a href='/#Skill' className=''>Skills</a>
+        <a href='/#Contact' id='Start'>Contact Me</a>
     </div>
     <div className='md:hidden ml-2 md: '>
       <button onClick={()=>setnav(!nav)} className='md:hidden'>
