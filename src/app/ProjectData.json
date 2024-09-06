@@ -7,5 +7,25 @@
         "Technologies":["Frontend: HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS","Backend: Node.js, Express.js, MongoDB","API Integration: RESTful APIs for seamless data interaction",""],
         "img":"/project-1.png",
         "Link":"https://github.com/neeranjan-bhardwaj/recipesavvy"
+    },
+    {
+        "id":2,
+        "Name":"API",
+        "Description": "AnimeQuote API is a feature-rich backend service that allows users to explore a collection of anime quotes, complete with character names, images, and the anime title. The platform supports secure user authentication, enabling users to create accounts, log in, and manage quotes. Admins have the ability to add or delete quotes, ensuring smooth and secure management of the API.",
+        "Features": [
+        "Retrieve random anime quotes along with character names, images, and anime titles.",
+        "Secure JWT-based authentication for user login and signup.",
+        "Admin-only routes for adding and deleting quotes.",
+        "Protected routes for authorized access to anime quotes.",
+        "Input validation and error handling for data consistency."
+        ],
+        "Technologies": [
+        "Backend: Node.js, Express.js, MongoDB, Mongoose",
+        "Security: JWT (JSON Web Tokens), bcrypt.js for password encryption",
+        "Language: TypeScript for type safety and maintainability",
+        "Validation: Express-validator for input validation"
+        ],
+        "img":"/project-2.png",
+        "Link":"https://github.com/neeranjan-bhardwaj/AnimeQuote"
     }
 ]
