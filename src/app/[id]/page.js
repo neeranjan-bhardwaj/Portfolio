@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const page = ({params}) => {
   return (
-    <div className='text-white grid place-items-center gap-5 '>
+    <div className='text-white grid place-items-center gap-5 mt-10 '>
         {
             Data.map(e=>{
                 if(e.id==params.id){
