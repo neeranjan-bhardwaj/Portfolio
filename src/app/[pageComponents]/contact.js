@@ -13,7 +13,7 @@ export default function Contact(){
           const mail=data.email
           const message=data.message
           const send=async()=>{
-            await Mail({to:process.env.MAIL,name:name,subject:"test mail",
+            await Mail({to:process.env.MAIL,name:name,subject:`Mail From ${name}`,
               body:`<h1>This is mail is from ${name} </br>There mail is ${mail} </h1> <h2> ${message}</h2>`
             })
           }
