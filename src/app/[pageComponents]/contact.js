@@ -14,7 +14,7 @@ export default function Contact(){
           const message=data.message
           const send=async()=>{
             await Mail({name:name,subject:"test mail",
-              body:`<h1>this is mail is from ${name} and there mail is${mail} </h1> <p> ${message}</p>`
+              body:`<h1>this is mail is from ${name} </br> there mail is ${mail} </h1> <p> ${message}</p>`
             })
           }
           try{
