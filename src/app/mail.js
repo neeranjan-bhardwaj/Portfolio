@@ -3,7 +3,6 @@
 import nodemailer from 'nodemailer'
 
 export async function Mail ({
-    to,
     name,
     subject,
     body
@@ -27,7 +26,7 @@ export async function Mail ({
     try{
         const info = await transporter.sendMail({
             from: MAIL,
-            to: to,
+            to: MAIL,
             subject: subject,
             html: body
             })
