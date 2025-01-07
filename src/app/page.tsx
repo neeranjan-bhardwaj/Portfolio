@@ -3,12 +3,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
+import {motion,useAnimationControls} from 'motion/react'
 
 const page = () => {
   const [Type,setType]=useState<String>('')
   const [Index,setIndex]=useState<number>(0)
+  const Mouse=useRef(null)
   const str:string="Modern Architecture";
+  const [Top,setTop]=useState<number>()
+  const [Left,setLeft]=useState<number>()
+  const control=useAnimationControls()
 
+  // for TypeWriter effect
   useEffect(()=>{
     if(Index<str.length){
     const TypeWrite=setTimeout(()=>{
@@ -17,35 +23,199 @@ const page = () => {
     },100)
     return ()=>clearTimeout(TypeWrite)}
   },[Type])
+  // mouse effect
+  const Move=(e:React.MouseEvent<HTMLDivElement>)=>{
+    setTimeout(() => {
+      setTop(e.pageY-Mouse.current.offsetHeight/2)
+      setLeft(e.pageX-Mouse.current.offsetWidth/2)
+    },50);
+  }
 
   return (
-    <div className="bg-black text-white font-sans">
+    <div className="bg-black text-white font-sans relative z-50" onMouseMove={Move}>
       {/* Header Section */}
       <header className="flex justify-center items-center px-8 py-4 sticky top-0 z-50">
-        <nav className="flex gap-5 justify-center rounded-2xl text-lg sticky top-2 font-Cormorant bg-[#d9d9d936] h-8 w-80">
-          <Link href="#" className="hover:text-teal-400 ">Home</Link>
-          <Link href="#about" className="hover:text-teal-400">About</Link>
-          <Link href="#projects" className="hover:text-teal-400">Projects</Link>
-          <Link href="#skills" className="hover:text-teal-400">Skills</Link>
-          {/* <Link href="/Resume" className="hover:text-teal-400">Resume</Link> */}
-        </nav>
+        <motion.nav 
+          className="flex gap-5 justify-center rounded-2xl overflow-hidden text-lg sticky top-2 font-Cormorant bg-[#d9d9d936] h-8 w-80"
+          initial={{
+            x: -50,
+            opacity:0
+          }}
+          animate={{
+            x:0,
+            opacity:1
+          }}
+          transition={{
+            duration: 0.5,
+          }}
+        >
+            <motion.a 
+              href="#"
+              whileHover={{
+                color:'#2AECC5',
+                scale:1.25
+              }}
+              initial={{
+                x:1000,
+              }}
+              animate={{
+                x:0
+              }}
+              transition={{
+                duration:0.5
+              }}
+              onMouseEnter={()=>{control.start('hover')}}
+              onMouseLeave={()=>{control.start('initial')}}
+            >Home</motion.a>
+            <motion.a 
+              href="#about"
+              whileHover={{
+                color:'#2AECC5',
+                scale:1.25
+              }}
+              initial={{
+                x:1000,
+              }}
+              animate={{
+                x:0
+              }}
+              transition={{
+                duration:0.5
+              }}
+              onMouseEnter={()=>{control.start('hover')}}
+              onMouseLeave={()=>{control.start('initial')}}
+            >About</motion.a>
+            <motion.a 
+              href="#projects"
+              whileHover={{
+                color:'#2AECC5',
+                scale:1.25
+              }}
+              initial={{
+                x:1000,
+              }}
+              animate={{
+                x:0
+              }}
+              transition={{
+                duration:0.5
+              }}
+              onMouseEnter={()=>{control.start('hover')}}
+              onMouseLeave={()=>{control.start('initial')}}
+            >Projects</motion.a>
+            <motion.a 
+              href="#skills"
+              whileHover={{
+                color:'#2AECC5',
+                scale:1.25
+              }}
+              initial={{
+                x:1000,
+              }}
+              animate={{
+                x:0
+              }}
+              transition={{
+                duration:0.5
+              }}
+              onMouseEnter={()=>{control.start('hover')}}
+              onMouseLeave={()=>{control.start('initial')}}
+            >Skills</motion.a>
+            {/* <Link href="/Resume" className="hover:text-teal-400">Resume</Link> */}
+        </motion.nav>
       </header>
 
       {/* Hero Section */}
-      <section className="text-center py-16 px-8">
+      <section className="text-center py-16 px-8 z-50">
         <div className="flex justify-center mb-4 ">
           <div className='w-32 h-32 bg-teal-400 blur-3xl overflow-hidden rounded-full'></div>
           <div className="w-32 h-32 overflow-hidden absolute rounded-full" >
             <Image src="/Main.png" alt="" width={128} height={128} className=' object-contain absolute ' />
           </div>
         </div>
-        <h1 className="text-3xl md:text-5xl font-bold leading-tight font-Cormorant">
-          Building Tomorrow's <span className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text font-Cormorant">Web Experiences</span>
-          <br /> with <span className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text font-Cormorant">{Type} |</span>
-        </h1>
+        <motion.h1
+          className="text-3xl md:text-5xl font-bold leading-tight font-Cormorant"
+          initial={{
+            y:40,
+            opacity:0
+          }}
+          animate={{
+            y:0,
+            opacity:1
+          }}
+          transition={{
+            duration:1.5,
+          }}
+        >
+          {["B","u","i","l","d","i","n","g",' ',"T","o","m","o","r","r","o","w","'","s",' ',"W","e","b"," ","E","x","p","e","r","i","e","n","c","e","s"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}<br/>
+            {["w","i","t","h"," "].map((e,i)=>{
+              return(
+                <motion.div 
+                  key={i} 
+                  whileHover={{
+                    color:'#2AECC5',
+                    scale:1.25
+                  }}
+                  onMouseEnter={()=>{control.start('hover')}}
+                  onMouseLeave={()=>{control.start('initial')}}
+                  className='inline-block'
+                >{e}</motion.div>
+              )
+            })}
+          <div className=' inline-block bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text'>
+            {Type}
+          </div>
+        </motion.h1>
         <div className="mt-6 space-x-4">
-          <button className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] hover:bg-gradient-to-r hover:from-[#1CAC8F] hover:to-[#FC636B] text-black font-bold px-6 py-2 rounded-3xl font-Cormorant">Start Project</button>
-          <button className=" border-2 border-[#2AECC5]  hover:bg-gradient-to-r hover:from-[#2AECC5] hover:to-[#F37F85] text-pink-400 hover:text-black font-bold px-6 py-2 rounded-3xl font-Cormorant">Download CV</button>
+          <motion.button 
+            className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] hover:bg-gradient-to-r hover:from-[#1CAC8F] hover:to-[#FC636B] text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
+            whileHover={{
+              scale:1.15,
+              rotate:'5deg'
+            }}
+            initial={{
+              scale:0,
+              opacity:0
+            }}
+            animate={{
+              scale:1,
+              opacity:1
+            }}
+            transition={{
+              duration:0.5
+            }}
+          >Start Project</motion.button>
+          <motion.button 
+            className=" border-2 border-[#2AECC5]  hover:bg-gradient-to-r hover:from-[#2AECC5] hover:to-[#F37F85] text-pink-400 hover:text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
+            whileHover={{
+              scale:1.15,
+              rotate:'-5deg'
+            }}
+            initial={{
+              scale:0,
+              opacity:0
+            }}
+            animate={{
+              scale:1,
+              opacity:1
+            }}
+            transition={{
+              duration:0.5
+            }}
+          >Download CV</motion.button>
         </div>
       </section>
 
@@ -55,8 +225,23 @@ const page = () => {
           <Image src="/About.png" alt="" width={340} height={100} className=' object-contain !ml-14 ' />
         </div>
         <div className='text-center'>
-          <h2 className="text-2xl md:text-4xl font-bold mb-4 font-Cormorant">About Me</h2>
-          <p className="max-w-4xl text-lg mx-auto leading-relaxed font-Cormorant">
+          <h2 id='i2' className="text-2xl md:text-4xl font-bold mb-4 font-Cormorant overflow-hidden">
+            {["A","b","o","u","t ",'',"M","e"].map((e,i)=>{
+              return(
+                <motion.div
+                  key={i}
+                  whileHover={{
+                    color:'#2AECC5',
+                    scale:1.25
+                  }}
+                  onMouseEnter={()=>{control.start('hover')}}
+                  onMouseLeave={()=>{control.start('initial')}}
+                  className='inline-block'
+                >{e}</motion.div>
+              )
+            })}
+          </h2>
+          <p id='i2' className="max-w-4xl text-lg mx-auto leading-relaxed font-Cormorant">
             Hi, I'm Neeranjan Bhardwaj | Full-Stack Developer transforming complex technical challenges into elegant, user-centric solutions. With expertise in MERN stack development and responsive design, I specialize in creating scalable applications that drive meaningful user engagement.<br/>
             <span className="bg-gradient-to-r from-[#0D8E26] to-[#2AECC5] text-transparent bg-clip-text font-extrabold text-2xl">Let's collaborate to turn your vision into reality.</span>
           </p>
@@ -101,9 +286,33 @@ const page = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-center py-4 font-Cormorant">
+      <footer className="bg-gray-900 text-center py-4 font-Cormorant">  
         <p className="text-gray-400">© 2025 Neeranjan Bhardwaj</p>
       </footer>
+      <motion.span 
+        ref={Mouse} 
+        className={`w-7 h-7 rounded-full border-white border-2 absolute`} 
+        style={{top:Top,left:Left,zIndex:-1}}
+        variants={{
+          hover:{
+            backgroundColor:'#F37F85',
+            boxShadow:'0 0 20px 5px #2AECC5',
+            scale:1.55
+          },
+          initial:{
+            backgroundColor:'transparent',
+            boxShadow:'none',
+            scale:1
+          },
+          button:{
+            backgroundColor:'#F37F85',
+            boxShadow:'0 0 20px 5px #2AECC5',
+            scale:1.55,
+            zIndex:20
+          }
+        }}
+        animate={control}
+      ></motion.span>
     </div>
   );
 }
