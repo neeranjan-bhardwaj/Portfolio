@@ -53,7 +53,8 @@ const page = () => {
               href="#"
               whileHover={{
                 color:'#2AECC5',
-                scale:1.25
+                scale:1.25,
+                transition:{duration:0}
               }}
               initial={{
                 x:1000,
@@ -68,28 +69,11 @@ const page = () => {
               onMouseLeave={()=>{control.start('initial')}}
             >Home</motion.a>
             <motion.a 
-              href="#about"
-              whileHover={{
-                color:'#2AECC5',
-                scale:1.25
-              }}
-              initial={{
-                x:1000,
-              }}
-              animate={{
-                x:0
-              }}
-              transition={{
-                duration:0.5
-              }}
-              onMouseEnter={()=>{control.start('hover')}}
-              onMouseLeave={()=>{control.start('initial')}}
-            >About</motion.a>
-            <motion.a 
               href="#projects"
               whileHover={{
                 color:'#2AECC5',
-                scale:1.25
+                scale:1.25,
+                transition:{duration:0}
               }}
               initial={{
                 x:1000,
@@ -98,7 +82,7 @@ const page = () => {
                 x:0
               }}
               transition={{
-                duration:0.5
+                duration:1.5
               }}
               onMouseEnter={()=>{control.start('hover')}}
               onMouseLeave={()=>{control.start('initial')}}
@@ -107,7 +91,8 @@ const page = () => {
               href="#skills"
               whileHover={{
                 color:'#2AECC5',
-                scale:1.25
+                scale:1.25,
+                transition:{duration:0}
               }}
               initial={{
                 x:1000,
@@ -116,7 +101,7 @@ const page = () => {
                 x:0
               }}
               transition={{
-                duration:0.5
+                duration:2
               }}
               onMouseEnter={()=>{control.start('hover')}}
               onMouseLeave={()=>{control.start('initial')}}
@@ -145,6 +130,7 @@ const page = () => {
           }}
           transition={{
             duration:1.5,
+            delay:1.2
           }}
         >
           {["B","u","i","l","d","i","n","g",' ',"T","o","m","o","r","r","o","w","'","s",' ',"W","e","b"," ","E","x","p","e","r","i","e","n","c","e","s"].map((e,i)=>{
@@ -153,7 +139,7 @@ const page = () => {
                 key={i} 
                 whileHover={{
                   color:'#2AECC5',
-                  scale:1.25
+                  scale:1.25,
                 }}
                 onMouseEnter={()=>{control.start('hover')}}
                 onMouseLeave={()=>{control.start('initial')}}
@@ -184,7 +170,11 @@ const page = () => {
             className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] hover:bg-gradient-to-r hover:from-[#1CAC8F] hover:to-[#FC636B] text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
             whileHover={{
               scale:1.15,
-              rotate:'5deg'
+              transition:{duration:0.1},
+              boxShadow:'0 0 20px 5px #2AECC5'
+            }}
+            whileTap={{
+              scale:0.9
             }}
             initial={{
               scale:0,
@@ -195,14 +185,19 @@ const page = () => {
               opacity:1
             }}
             transition={{
-              duration:0.5
+              duration:0.5,
+              delay:2
             }}
           >Start Project</motion.button>
           <motion.button 
             className=" border-2 border-[#2AECC5]  hover:bg-gradient-to-r hover:from-[#2AECC5] hover:to-[#F37F85] text-pink-400 hover:text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
             whileHover={{
               scale:1.15,
-              rotate:'-5deg'
+              transition:{duration:0.1},
+              boxShadow:'0 0 20px 5px #2AECC5'
+            }}
+            whileTap={{
+              scale:0.9
             }}
             initial={{
               scale:0,
@@ -213,51 +208,30 @@ const page = () => {
               opacity:1
             }}
             transition={{
-              duration:0.5
+              duration:1,
+              delay:2
             }}
           >Download CV</motion.button>
         </div>
       </section>
 
       {/* About Me Section */}
-      <section id="about" className=" flex gap-16 py-12 px-8">
-        <div className='h-72 w-[40rem]'>
-          <Image src="/About.png" alt="" width={340} height={100} className=' object-contain !ml-14 ' />
-        </div>
-        <div className='text-center'>
-          <h2 id='i2' className="text-2xl md:text-4xl font-bold mb-4 font-Cormorant overflow-hidden">
-            {["A","b","o","u","t ",'',"M","e"].map((e,i)=>{
-              return(
-                <motion.div
-                  key={i}
-                  whileHover={{
-                    color:'#2AECC5',
-                    scale:1.25
-                  }}
-                  onMouseEnter={()=>{control.start('hover')}}
-                  onMouseLeave={()=>{control.start('initial')}}
-                  className='inline-block'
-                >{e}</motion.div>
-              )
-            })}
-          </h2>
-          <p id='i2' className="max-w-4xl text-lg mx-auto leading-relaxed font-Cormorant">
-            Hi, I'm Neeranjan Bhardwaj | Full-Stack Developer transforming complex technical challenges into elegant, user-centric solutions. With expertise in MERN stack development and responsive design, I specialize in creating scalable applications that drive meaningful user engagement.<br/>
-            <span className="bg-gradient-to-r from-[#0D8E26] to-[#2AECC5] text-transparent bg-clip-text font-extrabold text-2xl">Let's collaborate to turn your vision into reality.</span>
-          </p>
-        </div>
-      </section>
+      
 
       {/* Projects Section */}
       <section id="projects" className="py-12 px-8 font-Cormorant">
         <h2 className="text-center text-2xl md:text-4xl font-bold mb-8">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[...Array(4)].map((_, index) => (
-            <div key={index} className="border border-gray-700 p-4 rounded-md">
-              <h3 className="text-xl font-bold mb-2">Title:</h3>
-              <p>About project tell here</p>
-            </div>
-          ))}
+          <motion.div
+            className=''
+          >
+            <motion.img
+              className=''
+            />
+            <motion.h2
+              className=''
+            ></motion.h2>
+          </motion.div>
         </div>
       </section>
 
@@ -266,21 +240,60 @@ const page = () => {
         <h2 className="text-center text-2xl md:text-4xl font-bold mb-8">Core Competencies</h2>
         <div className="flex flex-wrap justify-center gap-5">
           {["Frontend Development", "React.js", "Next.js", "JavaScript", "TypeScript", "Backend Development", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
-            <span key={skill} className="bg-gray-800 text-white px-4 py-2 rounded">{skill}</span>
+            <motion.span 
+              key={skill} 
+              className="bg-gray-800 text-white px-4 py-2 rounded"
+              whileHover={{
+                scale: 1.25,
+                transition:{duration:0.2},
+                boxShadow:'0 0 20px 5px #2AECC5'
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              onMouseEnter={()=>control.start('hover')}
+              onMouseLeave={()=>control.start('initial')}
+            >{skill}</motion.span>
           ))}
         </div>
 
         <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">Technical Expertise</h2>
         <div className="flex flex-wrap justify-center gap-5">
           {["JavaScript", "TypeScript", "Python", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
-            <span key={expertise} className="bg-gray-800 text-white px-4 py-2 rounded">{expertise}</span>
+            <motion.span 
+              key={expertise} 
+              className="bg-gray-800 text-white px-4 py-2 rounded"
+              whileHover={{
+                scale: 1.25,
+                transition:{duration:0.2},
+                boxShadow:'0 0 20px 5px #2AECC5'
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              onMouseEnter={()=>control.start('hover')}
+              onMouseLeave={()=>control.start('initial')}
+            >{expertise}</motion.span>
           ))}
         </div>
 
         <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">Soft Skills</h2>
         <div className="flex flex-wrap justify-center gap-5">
           {["Problem-Solving", "Attention to Detail", "Collaboration and Teamwork", "Adaptability and Resilience"].map(softSkill => (
-            <span key={softSkill} className="bg-gray-800 text-white px-4 py-2 rounded">{softSkill}</span>
+            <motion.span 
+              key={softSkill} 
+              className="bg-gray-800 text-white px-4 py-2 rounded"
+              whileHover={{
+                scale: 1.25,
+                transition:{duration:0.2},
+                boxShadow:'0 0 20px 5px #2AECC5'
+              }}
+              whileTap={{
+                scale: 0.9,
+              }}
+              onMouseEnter={()=>control.start('hover')}
+              onMouseLeave={()=>control.start('initial')}
+            >{softSkill}</motion.span>
           ))}
         </div>
       </section>
