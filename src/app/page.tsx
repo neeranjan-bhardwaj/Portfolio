@@ -133,7 +133,7 @@ const page = () => {
             delay:1.2
           }}
         >
-          {["B","u","i","l","d","i","n","g",' ',"T","o","m","o","r","r","o","w","'","s",' ',"W","e","b"," ","E","x","p","e","r","i","e","n","c","e","s"].map((e,i)=>{
+          {["B","u","i","l","d","i","n","g"].map((e,i)=>{
             return(
               <motion.div 
                 key={i} 
@@ -146,7 +146,56 @@ const page = () => {
                 className='inline-block'
               >{e}</motion.div>
             )
-          })}<br/>
+          })}
+          
+          <span> </span>
+          {["E","x","p","e","r","i","e","n","c","e","s"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+
+          <span> </span>
+          {["W","e","b"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+
+          <span> </span>
+          {["T","o","m","o","r","r","o","w","'","s"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+          <br/>
             {["w","i","t","h"," "].map((e,i)=>{
               return(
                 <motion.div 
@@ -186,7 +235,6 @@ const page = () => {
             }}
             transition={{
               duration:0.5,
-              delay:2
             }}
           >Start Project</motion.button>
           <motion.button 
@@ -209,7 +257,6 @@ const page = () => {
             }}
             transition={{
               duration:1,
-              delay:2
             }}
           >Download CV</motion.button>
         </div>
@@ -220,7 +267,22 @@ const page = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-12 px-8 font-Cormorant">
-        <h2 className="text-center text-2xl md:text-4xl font-bold mb-8">Projects</h2>
+        <motion.h2 
+          className="text-center text-2xl md:text-4xl font-bold mb-8"
+        >{["P","r","o","j","e","c","t","s"].map((e,i)=>{
+          return(
+            <motion.div 
+              key={i} 
+              whileHover={{
+                color:'#2AECC5',
+                scale:1.25,
+              }}
+              onMouseEnter={()=>{control.start('hover')}}
+              onMouseLeave={()=>{control.start('initial')}}
+              className='inline-block'
+            >{e}</motion.div>
+          )
+        })}</motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div
             className=''
@@ -237,65 +299,202 @@ const page = () => {
 
       {/* Skills Section */}
       <section id="skills" className="py-12 px-8 font-Cormorant">
-        <h2 className="text-center text-2xl md:text-4xl font-bold mb-8">Core Competencies</h2>
-        <div className="flex flex-wrap justify-center gap-5">
-          {["Frontend Development", "React.js", "Next.js", "JavaScript", "TypeScript", "Backend Development", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
-            <motion.span 
-              key={skill} 
-              className="bg-gray-800 text-white px-4 py-2 rounded"
-              whileHover={{
-                scale: 1.25,
-                transition:{duration:0.2},
-                boxShadow:'0 0 20px 5px #2AECC5'
-              }}
-              whileTap={{
-                scale: 0.9,
-              }}
-              onMouseEnter={()=>control.start('hover')}
-              onMouseLeave={()=>control.start('initial')}
-            >{skill}</motion.span>
-          ))}
-        </div>
+        <motion.div
+          whileInView={{
+            y:0,
+            opacity:1
+          }}
+          initial={{
+            y:20,
+            opacity:0
+          }}
+          transition={{
+            duration:1,
+            delay:0.5
+          }}
+        >
+          <h2 
+            className="w-full text-center text-2xl md:text-4xl font-bold mb-8 overflow-hidden"
+          >
+            {["C","o","r","e"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+            <span> </span>
+            {["C","o","m","p","e","t","e","n","c","i","e","s"].map((e,i)=>{
+              return(
+                <motion.div 
+                  key={i} 
+                  whileHover={{
+                    color:'#2AECC5',
+                    scale:1.25,
+                  }}
+                  onMouseEnter={()=>{control.start('hover')}}
+                  onMouseLeave={()=>{control.start('initial')}}
+                  className='inline-block'
+                >{e}</motion.div>
+              )
+            })}
+          </h2>
+          <div className="flex flex-wrap justify-center gap-5">
+            {["Frontend Development", "React.js", "Next.js", "JavaScript", "TypeScript", "Backend Development", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
+              <motion.span 
+                key={skill} 
+                className="bg-gray-800 text-white px-4 py-2 rounded"
+                whileHover={{
+                  scale: 1.25,
+                  transition:{duration:0.2},
+                  boxShadow:'0 0 20px 5px #2AECC5'
+                }}
+                whileTap={{
+                  scale: 0.9,
+                }}
+                onMouseEnter={()=>control.start('hover')}
+                onMouseLeave={()=>control.start('initial')}
+              >{skill}</motion.span>
+            ))}
+          </div>
+        </motion.div>
 
-        <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">Technical Expertise</h2>
-        <div className="flex flex-wrap justify-center gap-5">
-          {["JavaScript", "TypeScript", "Python", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
-            <motion.span 
-              key={expertise} 
-              className="bg-gray-800 text-white px-4 py-2 rounded"
-              whileHover={{
-                scale: 1.25,
-                transition:{duration:0.2},
-                boxShadow:'0 0 20px 5px #2AECC5'
-              }}
-              whileTap={{
-                scale: 0.9,
-              }}
-              onMouseEnter={()=>control.start('hover')}
-              onMouseLeave={()=>control.start('initial')}
-            >{expertise}</motion.span>
-          ))}
-        </div>
-
-        <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">Soft Skills</h2>
-        <div className="flex flex-wrap justify-center gap-5">
-          {["Problem-Solving", "Attention to Detail", "Collaboration and Teamwork", "Adaptability and Resilience"].map(softSkill => (
-            <motion.span 
-              key={softSkill} 
-              className="bg-gray-800 text-white px-4 py-2 rounded"
-              whileHover={{
-                scale: 1.25,
-                transition:{duration:0.2},
-                boxShadow:'0 0 20px 5px #2AECC5'
-              }}
-              whileTap={{
-                scale: 0.9,
-              }}
-              onMouseEnter={()=>control.start('hover')}
-              onMouseLeave={()=>control.start('initial')}
-            >{softSkill}</motion.span>
-          ))}
-        </div>
+        <motion.div
+          whileInView={{
+            y:0,
+            opacity:1
+          }}
+          initial={{
+            y:20,
+            opacity:0
+          }}
+          transition={{
+            duration:1,
+            delay:1
+          }}
+        >
+          <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">
+          {["T","e","c","h","n","i","c","a","l"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+            <span> </span>
+            {["E","x","p","e","r","t","i","s","e"].map((e,i)=>{
+              return(
+                <motion.div 
+                  key={i} 
+                  whileHover={{
+                    color:'#2AECC5',
+                    scale:1.25,
+                  }}
+                  onMouseEnter={()=>{control.start('hover')}}
+                  onMouseLeave={()=>{control.start('initial')}}
+                  className='inline-block'
+                >{e}</motion.div>
+              )
+            })} 
+            </h2>
+          <div className="flex flex-wrap justify-center gap-5">
+            {["JavaScript", "TypeScript", "Python", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
+              <motion.span 
+                key={expertise} 
+                className="bg-gray-800 text-white px-4 py-2 rounded"
+                whileHover={{
+                  scale: 1.25,
+                  transition:{duration:0.2},
+                  boxShadow:'0 0 20px 5px #2AECC5'
+                }}
+                whileTap={{
+                  scale: 0.9,
+                }}
+                onMouseEnter={()=>control.start('hover')}
+                onMouseLeave={()=>control.start('initial')}
+              >{expertise}</motion.span>
+            ))}
+          </div>
+        </motion.div>
+        
+        <motion.div
+          whileInView={{
+            y:0,
+            opacity:1
+          }}
+          initial={{
+            y:20,
+            opacity:0
+          }}
+          transition={{
+            duration:1,
+            delay:1
+          }}
+        >
+          <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">
+          {["S","o","f","t"].map((e,i)=>{
+            return(
+              <motion.div 
+                key={i} 
+                whileHover={{
+                  color:'#2AECC5',
+                  scale:1.25,
+                }}
+                onMouseEnter={()=>{control.start('hover')}}
+                onMouseLeave={()=>{control.start('initial')}}
+                className='inline-block'
+              >{e}</motion.div>
+            )
+          })}
+            <span> </span>
+            {["S","k","i","l","l","s"].map((e,i)=>{
+              return(
+                <motion.div 
+                  key={i} 
+                  whileHover={{
+                    color:'#2AECC5',
+                    scale:1.25,
+                  }}
+                  onMouseEnter={()=>{control.start('hover')}}
+                  onMouseLeave={()=>{control.start('initial')}}
+                  className='inline-block'
+                >{e}</motion.div>
+              )
+            })}
+            </h2>
+          <div className="flex flex-wrap justify-center gap-5">
+            {["Problem-Solving", "Attention to Detail", "Collaboration and Teamwork", "Adaptability and Resilience"].map(softSkill => (
+              <motion.span 
+                key={softSkill} 
+                className="bg-gray-800 text-white px-4 py-2 rounded"
+                whileHover={{
+                  scale: 1.25,
+                  transition:{duration:0.2},
+                  boxShadow:'0 0 20px 5px #2AECC5'
+                }}
+                whileTap={{
+                  scale: 0.9,
+                }}
+                onMouseEnter={()=>control.start('hover')}
+                onMouseLeave={()=>control.start('initial')}
+              >{softSkill}</motion.span>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Footer Section */}
