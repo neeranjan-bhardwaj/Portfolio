@@ -1,11 +1,108 @@
 "use client"
 
 import Image from 'next/image';
-import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import {motion,useAnimationControls} from 'motion/react'
 
 const page = () => {
+
+  const Hover=(arr: string[]):ReactNode=>{
+    return (arr.map((e,i)=>{
+      return(
+        <motion.div 
+          key={i} 
+          whileHover={{
+            color:'#2AECC5',
+            scale:1.25,
+            textShadow:'0 0 20px #2AECC5',
+          }}
+          onMouseEnter={()=>{control.start('hover')}}
+          onMouseLeave={()=>{control.start('initial')}}
+          className='inline-block'
+        >{e}</motion.div>
+      )
+    }))
+  }
+
+  const Projects=(Name:string,Link:string,About:string,Img:string,Skill:String[])=>{
+  const ProjectHover=useAnimationControls()
+    return(
+      <motion.a
+          className='relative mt-4'
+          onMouseEnter={()=>{ProjectHover.start('Hover')}}
+          onMouseLeave={()=>{ProjectHover.start('initial')}}
+          href={Link}
+          whileHover={{
+            scale:1.1
+          }}
+          whileTap={{
+            scale: 0.9,
+          }}
+          initial={{
+            opacity:0,
+            scale:0
+          }}
+          whileInView={{
+            opacity:1,
+            scale:1,
+            transition:{
+              duration:1.5
+            }
+          }}
+          >
+            <motion.img
+              className='!w-[25rem] object-contain'
+              src={Img}
+              variants={{
+                initial:{
+                  boxShadow:'none'
+                },
+                Hover:{
+                  boxShadow:'0 0 20px 5px #2AECC5'
+                }
+              }}
+              initial='initial'
+              animate={ProjectHover}
+            />
+            <motion.div
+              className='absolute flex flex-wrap justify-center gap-5 top-5 w-full'
+              variants={{
+                initial:{
+                  zIndex:-1,
+                  opacity:0,
+                  x:-200
+                },
+                Hover:{
+                  zIndex:1,
+                  opacity:1,
+                  x:0
+                }
+              }}
+              initial='initial'
+              animate={ProjectHover}
+            >
+              {Skill.map((e,i)=>{
+                return(
+                  <motion.div
+                    className="bg-gray-800 text-white px-4 py-2 rounded"
+                    key={i}
+                    whileHover={{
+                      boxShadow:'0 0 20px 5px #F37F85'
+                    }}
+                  >{e}</motion.div>
+                )
+              })}
+            </motion.div>
+            <motion.h1
+              className='text-4xl mt-5 font-semibold'
+            >{Name}</motion.h1>
+            <motion.p
+            className='w-96 mt-5 text-sm'
+            >{About}</motion.p>
+      </motion.a>
+    )
+  }
+  
   const [Type,setType]=useState<String>('')
   const [Index,setIndex]=useState<number>(0)
   const Mouse=useRef(null)
@@ -13,7 +110,6 @@ const page = () => {
   const [Top,setTop]=useState<number>()
   const [Left,setLeft]=useState<number>()
   const control=useAnimationControls()
-
   // for TypeWriter effect
   useEffect(()=>{
     if(Index<str.length){
@@ -133,83 +229,15 @@ const page = () => {
             delay:1.2
           }}
         >
-          {["B","u","i","l","d","i","n","g"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
-          
+          {Hover(["B","u","i","l","d","i","n","g"])}
           <span> </span>
-          {["E","x","p","e","r","i","e","n","c","e","s"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
-
+          {Hover(["T","o","m","o","r","r","o","w","'","s"])}
           <span> </span>
-          {["W","e","b"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
-
+          {Hover(["W","e","b"])}
           <span> </span>
-          {["T","o","m","o","r","r","o","w","'","s"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
+          {Hover(["E","x","p","e","r","i","e","n","c","e","s"])}
           <br/>
-            {["w","i","t","h"," "].map((e,i)=>{
-              return(
-                <motion.div 
-                  key={i} 
-                  whileHover={{
-                    color:'#2AECC5',
-                    scale:1.25
-                  }}
-                  onMouseEnter={()=>{control.start('hover')}}
-                  onMouseLeave={()=>{control.start('initial')}}
-                  className='inline-block'
-                >{e}</motion.div>
-              )
-            })}
+            {Hover(["w","i","t","h"," "])}
           <div className=' inline-block bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text'>
             {Type}
           </div>
@@ -269,31 +297,24 @@ const page = () => {
       <section id="projects" className="py-12 px-8 font-Cormorant">
         <motion.h2 
           className="text-center text-2xl md:text-4xl font-bold mb-8"
-        >{["P","r","o","j","e","c","t","s"].map((e,i)=>{
-          return(
-            <motion.div 
-              key={i} 
-              whileHover={{
-                color:'#2AECC5',
-                scale:1.25,
-              }}
-              onMouseEnter={()=>{control.start('hover')}}
-              onMouseLeave={()=>{control.start('initial')}}
-              className='inline-block'
-            >{e}</motion.div>
-          )
-        })}</motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <motion.div
-            className=''
-          >
-            <motion.img
-              className=''
-            />
-            <motion.h2
-              className=''
-            ></motion.h2>
-          </motion.div>
+          initial={{
+            opacity:0,
+            y: 200
+          }}
+          whileInView={{
+            opacity:1,
+            y: 0,
+            transition:{
+              duration:1
+            }
+          }}
+        >
+          {Hover(["P","r","o","j","e","c","t","s"])}
+        </motion.h2>
+        <div className="justify-items-center grid md:grid-cols-2 gap-8">
+          {Projects('Anime API','https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.jpeg',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"])}
+          {Projects('Smart-AI','https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"])}
+          {Projects('Smart-Text','https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"])}
         </div>
       </section>
 
@@ -316,38 +337,12 @@ const page = () => {
           <h2 
             className="w-full text-center text-2xl md:text-4xl font-bold mb-8 overflow-hidden"
           >
-            {["C","o","r","e"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
+            {Hover(["C","o","r","e"])}
             <span> </span>
-            {["C","o","m","p","e","t","e","n","c","i","e","s"].map((e,i)=>{
-              return(
-                <motion.div 
-                  key={i} 
-                  whileHover={{
-                    color:'#2AECC5',
-                    scale:1.25,
-                  }}
-                  onMouseEnter={()=>{control.start('hover')}}
-                  onMouseLeave={()=>{control.start('initial')}}
-                  className='inline-block'
-                >{e}</motion.div>
-              )
-            })}
+            {Hover(["C","o","m","p","e","t","e","n","c","i","e","s"])}
           </h2>
           <div className="flex flex-wrap justify-center gap-5">
-            {["Frontend Development", "React.js", "Next.js", "JavaScript", "TypeScript", "Backend Development", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
+            {["Frontend Development", "Backend Development", "React.js", "Next.js", "JavaScript","TypeScript", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
               <motion.span 
                 key={skill} 
                 className="bg-gray-800 text-white px-4 py-2 rounded"
@@ -377,45 +372,19 @@ const page = () => {
           }}
           transition={{
             duration:1,
-            delay:1
+            delay:1,
           }}
         >
           <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">
-          {["T","e","c","h","n","i","c","a","l"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
+          {Hover(["T","e","c","h","n","i","c","a","l"])}
             <span> </span>
-            {["E","x","p","e","r","t","i","s","e"].map((e,i)=>{
-              return(
-                <motion.div 
-                  key={i} 
-                  whileHover={{
-                    color:'#2AECC5',
-                    scale:1.25,
-                  }}
-                  onMouseEnter={()=>{control.start('hover')}}
-                  onMouseLeave={()=>{control.start('initial')}}
-                  className='inline-block'
-                >{e}</motion.div>
-              )
-            })} 
+          {Hover(["E","x","p","e","r","t","i","s","e"])}
             </h2>
           <div className="flex flex-wrap justify-center gap-5">
-            {["JavaScript", "TypeScript", "Python", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
+            {["JavaScript", "TypeScript", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
               <motion.span 
                 key={expertise} 
-                className="bg-gray-800 text-white px-4 py-2 rounded"
+                className="bg-gray-800 text-white px-4 py-2 rounded inline-block"
                 whileHover={{
                   scale: 1.25,
                   transition:{duration:0.2},
@@ -446,35 +415,9 @@ const page = () => {
           }}
         >
           <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">
-          {["S","o","f","t"].map((e,i)=>{
-            return(
-              <motion.div 
-                key={i} 
-                whileHover={{
-                  color:'#2AECC5',
-                  scale:1.25,
-                }}
-                onMouseEnter={()=>{control.start('hover')}}
-                onMouseLeave={()=>{control.start('initial')}}
-                className='inline-block'
-              >{e}</motion.div>
-            )
-          })}
+          {Hover(["S","o","f","t"])}
             <span> </span>
-            {["S","k","i","l","l","s"].map((e,i)=>{
-              return(
-                <motion.div 
-                  key={i} 
-                  whileHover={{
-                    color:'#2AECC5',
-                    scale:1.25,
-                  }}
-                  onMouseEnter={()=>{control.start('hover')}}
-                  onMouseLeave={()=>{control.start('initial')}}
-                  className='inline-block'
-                >{e}</motion.div>
-              )
-            })}
+          {Hover(["S","k","i","l","l","s"])}
             </h2>
           <div className="flex flex-wrap justify-center gap-5">
             {["Problem-Solving", "Attention to Detail", "Collaboration and Teamwork", "Adaptability and Resilience"].map(softSkill => (
