@@ -264,7 +264,7 @@ const page = () => {
             transition={{
               duration:0.5,
             }}
-          >Start Project</motion.button>
+          ><a href="/Contact"> Start Project </a></motion.button>
           <motion.button 
             className=" border-2 border-[#2AECC5]  hover:bg-gradient-to-r hover:from-[#2AECC5] hover:to-[#F37F85] text-pink-400 hover:text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
             whileHover={{
