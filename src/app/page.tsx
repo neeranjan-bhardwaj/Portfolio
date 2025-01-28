@@ -441,8 +441,40 @@ const page = () => {
       </section>
 
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-center py-4 font-Cormorant">  
-        <p className="text-gray-400">© 2025 Neeranjan Bhardwaj</p>
+      <footer className="bg-gray-900 text-center py-4 flex justify-between overflow-hidden font-Cormorant">  
+        <motion.h1 
+          className='text-3xl ml-5 '
+          initial={{
+            opacity:0,
+            x:-100
+          }}
+          whileInView={{
+            opacity:1,
+            x:0,
+            transition:{
+              duration:1.5
+            }
+          }}
+        >Neeranjan Bhardwaj</motion.h1>
+        <motion.div 
+          className='flex gap-5 justify-center items-center mr-5 overflow-hidden'
+          initial={{
+            opacity:0,
+            x:100
+          }}
+          whileInView={{
+            opacity:1,
+            x:0,
+            transition:{
+              duration:1.5,
+              delay:1
+            }
+          }}
+        >
+          <a href=""><Image src={'/GitHub.png'} width={70} height={70} alt="GitHub" className="mr-2" /></a>
+          <a href=""><Image src={'/Linkedin.png'} width={70} height={70} alt="Linkedin" className="mr-2" /></a>
+          <a href=""><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a>
+        </motion.div>
       </footer>
       <motion.span 
         ref={Mouse} 
