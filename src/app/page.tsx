@@ -24,7 +24,7 @@ const page = () => {
     }))
   }
 
-  const Projects=(Name:string,Link:string,About:string,Img:string,Skill:String[])=>{
+  const Projects=(Name:string[],Link:string,About:string,Img:string,Skill:string[],ComingSone:boolean)=>{
   const ProjectHover=useAnimationControls()
     return(
       <motion.a
@@ -51,7 +51,7 @@ const page = () => {
           }}
           >
             <motion.img
-              className='!w-[25rem] object-contain'
+              className={`!w-[25rem] object-contain ${ComingSone?"":""}`}
               src={Img}
               variants={{
                 initial:{
@@ -64,8 +64,28 @@ const page = () => {
               initial='initial'
               animate={ProjectHover}
             />
+            
             <motion.div
-              className='absolute flex flex-wrap justify-center gap-5 top-5 w-full'
+              className='absolute bg-[#0000006c] text-white text-lg text-center font-bold justify-center gap-5 top-0 w-full'
+              variants={{
+                initial:{
+                  zIndex:-1,
+                  opacity:0,
+                  x:-200
+                },
+                Hover:{
+                  zIndex:1,
+                  opacity:1,
+                  x:0
+                }
+              }}
+              initial='initial'
+              animate={ProjectHover}
+            >
+              Coming Sone 
+            </motion.div>
+            <motion.div
+              className='absolute flex flex-wrap justify-center gap-5 top-10 w-full'
               variants={{
                 initial:{
                   zIndex:-1,
@@ -95,9 +115,9 @@ const page = () => {
             </motion.div>
             <motion.h1
               className='text-4xl mt-5 font-semibold'
-            >{Name}</motion.h1>
+            >{Hover(Name)}</motion.h1>
             <motion.p
-            className='w-96 mt-5 text-sm'
+            className='w-80 mt-5 text-sm'
             >{About}</motion.p>
       </motion.a>
     )
@@ -229,15 +249,9 @@ const page = () => {
             delay:1.2
           }}
         >
-          {Hover(["B","u","i","l","d","i","n","g"])}
-          <span> </span>
-          {Hover(["T","o","m","o","r","r","o","w","'","s"])}
-          <span> </span>
-          {Hover(["W","e","b"])}
-          <span> </span>
-          {Hover(["E","x","p","e","r","i","e","n","c","e","s"])}
+          {Hover(["B","u","i","l","d","i","n","g"])} {Hover(["T","o","m","o","r","r","o","w","'","s"])} {Hover(["W","e","b"])} {Hover(["E","x","p","e","r","i","e","n","c","e","s"])}
           <br/>
-            {Hover(["w","i","t","h"," "])}
+            {Hover(["w","i","t","h"," "]) }
           <div className=' inline-block bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text'>
             {Type}
           </div>
@@ -311,10 +325,43 @@ const page = () => {
         >
           {Hover(["P","r","o","j","e","c","t","s"])}
         </motion.h2>
-        <div className="justify-items-center grid md:grid-cols-2 gap-8">
-          {Projects('Anime API','https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.jpeg',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"])}
-          {Projects('Smart-AI','https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"])}
-          {Projects('Smart-Text','https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"])}
+        <motion.h1 
+            className='text-2xl mt-2 ml-5 md:text-4xl font-bold'
+            initial={{
+              opacity:0,
+              y: 100
+            }}
+            whileInView={{
+              opacity:1,
+              y: 0,
+              transition:{
+                duration:1
+              }
+            }}
+          >{Hover(["1","."])} {Hover(["W","e","b"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
+        <div className="justify-items-center mt-10 grid md:grid-cols-2 gap-8">
+          {Projects(["A","n","i","m","e","-","A","P","I"],'https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.jpeg',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"],false)}
+          {Projects(["L","e","v","e","l","U","p","-","A","I"],'https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"],false)}
+          {Projects(["S","m","a","r","t","-","T","e","x","t"],'https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"],false)}
+          {Projects(["A","n","i","m","e","-","M","a","t","c","h","e","r"],'https://github.com/neeranjan-bhardwaj/Anime-Matcher',"","",["Frontend Development","Backend Development","Next JS","React JS","TypeScript","MySQL","Node.js","Express.js"],true)}
+        </div>
+        {/* Project Native */}
+        <motion.h1 
+            className='text-2xl mt-2 ml-5 md:text-4xl font-bold'
+            initial={{
+              opacity:0,
+              y: 100
+            }}
+            whileInView={{
+              opacity:1,
+              y: 0,
+              transition:{
+                duration:1
+              }
+            }}
+          >{Hover(["2","."])} {Hover(["N","a","t","i","v","e"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
+        <div className="justify-items-center grid mt-10 md:grid-cols-2 gap-8">
+          {Projects(["W","i","s","h","-","W","i","s","e"],'https://github.com/neeranjan-bhardwaj/WishWise','','/API.jpeg',["NodeJS","ExpressJS","MySQL","TypeScript","Backend Development","React Native","Android","IOS","Expo"],true)}
         </div>
       </section>
 
@@ -337,9 +384,7 @@ const page = () => {
           <h2 
             className="w-full text-center text-2xl md:text-4xl font-bold mb-8 overflow-hidden"
           >
-            {Hover(["C","o","r","e"])}
-            <span> </span>
-            {Hover(["C","o","m","p","e","t","e","n","c","i","e","s"])}
+            {Hover(["C","o","r","e"])} {Hover(["C","o","m","p","e","t","e","n","c","i","e","s"])}
           </h2>
           <div className="flex flex-wrap justify-center gap-5">
             {["Frontend Development", "Backend Development", "React.js", "Next.js", "JavaScript","TypeScript", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
@@ -376,9 +421,7 @@ const page = () => {
           }}
         >
           <h2 className="text-center text-2xl md:text-4xl font-bold mt-12 mb-8">
-          {Hover(["T","e","c","h","n","i","c","a","l"])}
-            <span> </span>
-          {Hover(["E","x","p","e","r","t","i","s","e"])}
+          {Hover(["T","e","c","h","n","i","c","a","l"])} {Hover(["E","x","p","e","r","t","i","s","e"])}
             </h2>
           <div className="flex flex-wrap justify-center gap-5">
             {["JavaScript", "TypeScript", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
@@ -443,7 +486,7 @@ const page = () => {
       {/* Footer Section */}
       <footer className="bg-gray-900 text-center py-4 flex justify-between overflow-hidden font-Cormorant">  
         <motion.h1 
-          className='text-3xl ml-5 '
+          className='text-sm md:text-3xl ml-0 md:ml-5 '
           initial={{
             opacity:0,
             x:-100
@@ -457,7 +500,7 @@ const page = () => {
           }}
         >Neeranjan Bhardwaj</motion.h1>
         <motion.div 
-          className='flex gap-5 justify-center items-center mr-5 overflow-hidden'
+          className='flex gap-5 justify-center items-center mr-0 md:mr-5 overflow-hidden'
           initial={{
             opacity:0,
             x:100
