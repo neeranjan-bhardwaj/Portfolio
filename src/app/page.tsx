@@ -42,6 +42,7 @@ const page = () => {
             opacity:0,
             scale:0
           }}
+          viewport={{once:true}}
           whileInView={{
             opacity:1,
             scale:1,
@@ -51,7 +52,7 @@ const page = () => {
           }}
           >
             <motion.img
-              className={`!w-[25rem] object-contain ${ComingSone?"":""}`}
+              className={`!w-[25rem] object-contain ${ComingSone && "blur-md"}`}
               src={Img}
               variants={{
                 initial:{
@@ -64,7 +65,12 @@ const page = () => {
               initial='initial'
               animate={ProjectHover}
             />
-            
+            {ComingSone && 
+              <div className="absolute top-0 flex items-center justify-center h-full w-full bg-transparent font-extrabold rounded-lg shadow-lg">
+                <span className="absolute text-red-500 text-4xl font-extrabold uppercase tracking-wider animate-pulse">
+                  Coming Soon
+                </span>
+              </div>}
             <motion.div
               className='absolute bg-[#0000006c] text-white text-lg text-center font-bold justify-center gap-5 top-0 w-full'
               variants={{
@@ -315,6 +321,7 @@ const page = () => {
             opacity:0,
             y: 200
           }}
+          viewport={{once:true}}
           whileInView={{
             opacity:1,
             y: 0,
@@ -331,6 +338,7 @@ const page = () => {
               opacity:0,
               y: 100
             }}
+            viewport={{once:true}}
             whileInView={{
               opacity:1,
               y: 0,
@@ -340,10 +348,10 @@ const page = () => {
             }}
           >{Hover(["1","."])} {Hover(["W","e","b"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
         <div className="justify-items-center mt-10 grid md:grid-cols-2 gap-8">
-          {Projects(["A","n","i","m","e","-","A","P","I"],'https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.jpeg',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"],false)}
-          {Projects(["L","e","v","e","l","U","p","-","A","I"],'https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"],false)}
+          {Projects(["A","n","i","m","e","-","A","P","I"],'https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.png',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"],false)}
+          {Projects(["L","e","v","e","l","U","p","-","A","I"],'https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','/LevelUp.jpg',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"],false)}
           {Projects(["S","m","a","r","t","-","T","e","x","t"],'https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"],false)}
-          {Projects(["A","n","i","m","e","-","M","a","t","c","h","e","r"],'https://github.com/neeranjan-bhardwaj/Anime-Matcher',"","",["Frontend Development","Backend Development","Next JS","React JS","TypeScript","MySQL","Node.js","Express.js"],true)}
+          {Projects(["A","n","i","m","e","-","M","a","t","c","h","e","r"],'https://github.com/neeranjan-bhardwaj/Anime-Matcher',"","/Anime.jpg",["Frontend Development","Backend Development","Next JS","React JS","TypeScript","MySQL","Node.js","Express.js"],true)}
         </div>
         {/* Project Native */}
         <motion.h1 
@@ -352,6 +360,7 @@ const page = () => {
               opacity:0,
               y: 100
             }}
+            viewport={{once:true}}
             whileInView={{
               opacity:1,
               y: 0,
@@ -361,13 +370,14 @@ const page = () => {
             }}
           >{Hover(["2","."])} {Hover(["N","a","t","i","v","e"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
         <div className="justify-items-center grid mt-10 md:grid-cols-2 gap-8">
-          {Projects(["W","i","s","h","-","W","i","s","e"],'https://github.com/neeranjan-bhardwaj/WishWise','','/API.jpeg',["NodeJS","ExpressJS","MySQL","TypeScript","Backend Development","React Native","Android","IOS","Expo"],true)}
+          {Projects(["W","i","s","h","-","W","i","s","e"],'https://github.com/neeranjan-bhardwaj/WishWise','','/Wish.png',["NodeJS","ExpressJS","MySQL","TypeScript","Backend Development","React Native","Android","IOS","Expo"],true)}
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-12 px-8 font-Cormorant">
         <motion.div
+          viewport={{once:true}}
           whileInView={{
             y:0,
             opacity:1
@@ -407,6 +417,7 @@ const page = () => {
         </motion.div>
 
         <motion.div
+          viewport={{once:true}}
           whileInView={{
             y:0,
             opacity:1
@@ -444,6 +455,7 @@ const page = () => {
         </motion.div>
         
         <motion.div
+          viewport={{once:true}}
           whileInView={{
             y:0,
             opacity:1
@@ -491,6 +503,7 @@ const page = () => {
             opacity:0,
             x:-100
           }}
+          viewport={{once:true}}
           whileInView={{
             opacity:1,
             x:0,
@@ -505,6 +518,7 @@ const page = () => {
             opacity:0,
             x:100
           }}
+          viewport={{once:true}}
           whileInView={{
             opacity:1,
             x:0,
@@ -514,9 +528,9 @@ const page = () => {
             }
           }}
         >
-          <a href=""><Image src={'/GitHub.png'} width={70} height={70} alt="GitHub" className="mr-2" /></a>
-          <a href=""><Image src={'/Linkedin.png'} width={70} height={70} alt="Linkedin" className="mr-2" /></a>
-          <a href=""><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a>
+          <a href="https://github.com/neeranjan-bhardwaj"><Image src={'/GitHub.png'} width={70} height={70} alt="GitHub" className="mr-2" /></a>
+          <a href="https://linkedin.com/in/neeranjan-bhardwaj-06621b27a"><Image src={'/Linkedin.png'} width={70} height={70} alt="Linkedin" className="mr-2" /></a>
+          <a href="https://leetcode.com/u/Neeranjan_Bhardwaj/"><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a>
         </motion.div>
       </footer>
       <motion.span 
