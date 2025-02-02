@@ -71,7 +71,7 @@ const page = () => {
                   Coming Soon
                 </span>
               </div>}
-            <motion.div
+            {ComingSone && <motion.div
               className='absolute bg-[#0000006c] text-white text-lg text-center font-bold justify-center gap-5 top-0 w-full'
               variants={{
                 initial:{
@@ -89,7 +89,7 @@ const page = () => {
               animate={ProjectHover}
             >
               Coming Sone 
-            </motion.div>
+            </motion.div>}
             <motion.div
               className='absolute flex flex-wrap justify-center gap-5 top-10 w-full'
               variants={{
@@ -347,10 +347,10 @@ const page = () => {
               }
             }}
           >{Hover(["1","."])} {Hover(["W","e","b"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
-        <div className="justify-items-center mt-10 grid md:grid-cols-2 gap-8">
+        <div className="justify-items-center mt-10 grid md:grid-cols-2 gap-16">
           {Projects(["A","n","i","m","e","-","A","P","I"],'https://github.com/neeranjan-bhardwaj/AnimeQuote','A secure, custom-built REST API delivering curated anime quotes with character imagery and series information, developed using Node.js, Express, and MongoDB.','/API.png',["NodeJS","ExpressJS","MongoDB","TypeScript","Backend Development","Secure API Development"],false)}
           {Projects(["L","e","v","e","l","U","p","-","A","I"],'https://github.com/neeranjan-bhardwaj/Smart-AI','An intelligent roadmap generator powered by Google Gemini API, creating personalized learning paths for gaming, coding, and various skills through Next.js architecture.','/LevelUp.jpg',["Frontend Development","Backend Development","Next JS","React JS","JavaScript","ShadCN UI"],false)}
-          {Projects(["S","m","a","r","t","-","T","e","x","t"],'https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"],false)}
+          {Projects(["S","m","a","r","t","-","T","e","x","t"],'https://github.com/neeranjan-bhardwaj/Smart-Text',"A sophisticated content creation platform leveraging Google Gemini API that enables writers to generate, enhance, and refine scripts with AI assistance, built on Next.js.","smart.jpg",["Frontend Development","Backend Development","Next JS","React JS","JavaScript","TypeScript","ShadCN UI"],false)}
           {Projects(["A","n","i","m","e","-","M","a","t","c","h","e","r"],'https://github.com/neeranjan-bhardwaj/Anime-Matcher',"","/Anime.jpg",["Frontend Development","Backend Development","Next JS","React JS","TypeScript","MySQL","Node.js","Express.js"],true)}
         </div>
         {/* Project Native */}
@@ -370,7 +370,7 @@ const page = () => {
             }}
           >{Hover(["2","."])} {Hover(["N","a","t","i","v","e"])} {Hover(["P","r","o","j","e","c","t","s"])}</motion.h1>
         <div className="justify-items-center grid mt-10 md:grid-cols-2 gap-8">
-          {Projects(["W","i","s","h","-","W","i","s","e"],'https://github.com/neeranjan-bhardwaj/WishWise','','/Wish.png',["NodeJS","ExpressJS","MySQL","TypeScript","Backend Development","React Native","Android","IOS","Expo"],true)}
+          {Projects(["W","i","s","h","-","W","i","s","e"],'https://github.com/neeranjan-bhardwaj/WishWise','','/Wish.jpg',["NodeJS","ExpressJS","MySQL","TypeScript","Backend Development","React Native","Android","IOS","Expo"],true)}
         </div>
       </section>
 
@@ -511,7 +511,7 @@ const page = () => {
               duration:1.5
             }
           }}
-        >Neeranjan Bhardwaj</motion.h1>
+        >{Hover(["N","e","e","r","a","n","j","a","n"])} {Hover(["B","h","a","r","d","w","a","j"])}</motion.h1>
         <motion.div 
           className='flex gap-5 justify-center items-center mr-0 md:mr-5 overflow-hidden'
           initial={{
