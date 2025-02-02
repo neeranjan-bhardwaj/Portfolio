@@ -257,12 +257,13 @@ const page = () => {
         >
           {Hover(["B","u","i","l","d","i","n","g"])} {Hover(["T","o","m","o","r","r","o","w","'","s"])} {Hover(["W","e","b"])} {Hover(["E","x","p","e","r","i","e","n","c","e","s"])}
           <br/>
-            {Hover(["w","i","t","h"," "]) }
+            {Hover(["w","i","t","h"])}
+            <span> </span>
           <div className=' inline-block bg-gradient-to-r from-[#2AECC5] to-[#F37F85] text-transparent bg-clip-text'>
             {Type}
           </div>
         </motion.h1>
-        <div className="mt-6 space-x-4">
+        <div className="mt-6 flex gap-5 justify-center">
           <motion.button 
             className="bg-gradient-to-r from-[#2AECC5] to-[#F37F85] hover:bg-gradient-to-r hover:from-[#1CAC8F] hover:to-[#FC636B] text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
             whileHover={{
@@ -284,7 +285,7 @@ const page = () => {
             transition={{
               duration:0.5,
             }}
-          ><a href="/Contact"> Start Project </a></motion.button>
+          ><a href="#Contact"> Start Project </a></motion.button>
           <motion.button 
             className=" border-2 border-[#2AECC5]  hover:bg-gradient-to-r hover:from-[#2AECC5] hover:to-[#F37F85] text-pink-400 hover:text-black font-bold px-6 py-2 rounded-3xl font-Cormorant"
             whileHover={{
@@ -494,11 +495,36 @@ const page = () => {
           </div>
         </motion.div>
       </section>
+{/* Mouse curse */}
 
+      <motion.span 
+        ref={Mouse} 
+        className={`w-7 h-7 rounded-full border-white border-2 absolute`} 
+        style={{top:Top,left:Left,zIndex:-1}}
+        variants={{
+          hover:{
+            backgroundColor:'#F37F85',
+            boxShadow:'0 0 20px 5px #2AECC5',
+            scale:1.55
+          },
+          initial:{
+            backgroundColor:'transparent',
+            boxShadow:'none',
+            scale:1
+          },
+          button:{
+            backgroundColor:'#F37F85',
+            boxShadow:'0 0 20px 5px #2AECC5',
+            scale:1.55,
+            zIndex:20
+          }
+        }}
+        animate={control}
+      ></motion.span>
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-center py-4 flex justify-between overflow-hidden font-Cormorant">  
+      <footer id='Contact' className="bg-gray-900 text-center py-4 flex justify-between overflow-hidden font-Cormorant">  
         <motion.h1 
-          className='text-sm md:text-3xl ml-0 md:ml-5 '
+          className='text-sm md:text-3xl ml-0 md:ml-5 w-72 '
           initial={{
             opacity:0,
             x:-100
@@ -533,30 +559,6 @@ const page = () => {
           <a href="https://leetcode.com/u/Neeranjan_Bhardwaj/"><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a>
         </motion.div>
       </footer>
-      <motion.span 
-        ref={Mouse} 
-        className={`w-7 h-7 rounded-full border-white border-2 absolute`} 
-        style={{top:Top,left:Left,zIndex:-1}}
-        variants={{
-          hover:{
-            backgroundColor:'#F37F85',
-            boxShadow:'0 0 20px 5px #2AECC5',
-            scale:1.55
-          },
-          initial:{
-            backgroundColor:'transparent',
-            boxShadow:'none',
-            scale:1
-          },
-          button:{
-            backgroundColor:'#F37F85',
-            boxShadow:'0 0 20px 5px #2AECC5',
-            scale:1.55,
-            zIndex:20
-          }
-        }}
-        animate={control}
-      ></motion.span>
     </div>
   );
 }
