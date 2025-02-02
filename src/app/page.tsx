@@ -4,25 +4,26 @@ import Image from 'next/image';
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import {motion,useAnimationControls} from 'motion/react'
 
-const page = () => {
-
-  const Hover=(arr: string[]):ReactNode=>{
-    return (arr.map((e,i)=>{
-      return(
-        <motion.div 
-          key={i} 
-          whileHover={{
-            color:'#2AECC5',
-            scale:1.25,
-            textShadow:'0 0 20px #2AECC5',
-          }}
-          onMouseEnter={()=>{control.start('hover')}}
-          onMouseLeave={()=>{control.start('initial')}}
-          className='inline-block'
-        >{e}</motion.div>
-      )
-    }))
-  }
+const Page = () => {
+  
+  // Hover animation
+    const Hover=(arr: string[]):ReactNode=>{
+      return (arr.map((e,i)=>{
+        return(
+          <motion.div 
+            key={i} 
+            whileHover={{
+              color:'#2AECC5',
+              scale:1.25,
+              textShadow:'0 0 20px #2AECC5',
+            }}
+            onMouseEnter={()=>{control.start('hover')}}
+            onMouseLeave={()=>{control.start('initial')}}
+            className='inline-block'
+          >{e}</motion.div>
+        )
+      }))
+    }
 
   const Projects=(Name:string[],Link:string,About:string,Img:string,Skill:string[],ComingSone:boolean)=>{
   const ProjectHover=useAnimationControls()
@@ -563,4 +564,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Page
