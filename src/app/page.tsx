@@ -69,7 +69,7 @@ const Page = () => {
             {ComingSone && 
               <div className="absolute top-0 flex items-center justify-center h-full w-full bg-transparent font-extrabold rounded-lg shadow-lg">
                 <span className="absolute text-red-500 text-4xl font-extrabold uppercase tracking-wider animate-pulse">
-                  Coming Soon
+                  Coming Sone
                 </span>
               </div>}
             {ComingSone && <motion.div
@@ -399,7 +399,7 @@ const Page = () => {
             {Hover(["C","o","r","e"])} {Hover(["C","o","m","p","e","t","e","n","c","i","e","s"])}
           </h2>
           <div className="flex flex-wrap justify-center gap-5">
-            {["Frontend Development", "Backend Development", "React.js", "Next.js", "JavaScript","TypeScript", "Node.js", "Express.js", "MongoDB", "SQL"].map(skill => (
+            {["Frontend Development", "Backend Development","Native Development", "React.js", "Next.js","Vue.js", "JavaScript","TypeScript","Pyhton", "Node.js", "Express.js","Django", "MongoDB","MySQL" , "SQL"].map(skill => (
               <motion.span 
                 key={skill} 
                 className="bg-gray-800 text-white px-4 py-2 rounded"
@@ -437,7 +437,7 @@ const Page = () => {
           {Hover(["T","e","c","h","n","i","c","a","l"])} {Hover(["E","x","p","e","r","t","i","s","e"])}
             </h2>
           <div className="flex flex-wrap justify-center gap-5">
-            {["JavaScript", "TypeScript", "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
+            {["JavaScript", "TypeScript","Python" , "ShadCN UI", "GSAP", "JWT Authentication", "Secure API Development", "Payment Integration"].map(expertise => (
               <motion.span 
                 key={expertise} 
                 className="bg-gray-800 text-white px-4 py-2 rounded inline-block"
@@ -557,7 +557,7 @@ const Page = () => {
         >
           <a href="https://github.com/neeranjan-bhardwaj"><Image src={'/GitHub.png'} width={70} height={70} alt="GitHub" className="mr-2" /></a>
           <a href="https://linkedin.com/in/neeranjan-bhardwaj-06621b27a"><Image src={'/Linkedin.png'} width={70} height={70} alt="Linkedin" className="mr-2" /></a>
-          <a href="https://leetcode.com/u/Neeranjan_Bhardwaj/"><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a>
+          {/* <a href="https://leetcode.com/u/Neeranjan_Bhardwaj/"><Image src={'/LeetCode.png'} width={100} height={100} alt="LeetCode" className="mr-2" /></a> */}
         </motion.div>
       </footer>
     </div>
